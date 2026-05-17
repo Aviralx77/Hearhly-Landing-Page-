@@ -1,99 +1,224 @@
-import { MessageSquareHeart, Lock, Users, Sparkles, Coffee } from 'lucide-react';
-import { motion } from 'motion/react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Lock, Mail, User, CheckCircle2, Loader2, MessageSquare } from 'lucide-react';
+
+const STORIES = [
+  { text: "I feel like I carry my entire family in my head.", author: "Working mom of two" },
+  { text: "Even when others help, I still have to think about everything.", author: "Busy professional" },
+  { text: "I just want one less thing to worry about.", author: "Mom & entrepreneur" }
+];
+
+const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/yvry00vwkhaztf408avr62l3xx9nu73b";
 
 export default function SurveySection() {
+  const [formData, setFormData] = useState({ name: '', email: '', answer: '' });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    // Enforce 300 character limit on the textarea
+    if (id === 'answer' && value.length > 300) return;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      const response = await fetch(MAKE_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          answer: formData.answer,
+          source: 'Landing Page Survey',
+          timestamp: new Date().toISOString()
+        })
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', answer: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Survey submission error:', error);
+      setStatus('error');
+    }
+  };
+
   return (
-    <section className="max-w-6xl mx-auto px-6 lg:px-8 mb-24 relative z-10">
-      <motion.div 
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="bg-[#FBF6F0] rounded-[2rem] p-8 sm:p-12 lg:p-16 border border-brand-border/40 shadow-sm"
-      >
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-serif text-brand-text mb-4 inline-flex items-center justify-center gap-3">
-            <span className="text-brand-primary font-sans text-2xl font-light">♡</span> 
-            Help us understand what matters to you
-          </h2>
-          <p className="text-brand-text/70 text-lg">
-            Your answers will help us build something that truly makes a difference.
-          </p>
-        </div>
+    <section id="survey-form" className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32 relative overflow-visible">
+      <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-16 lg:gap-24 items-center">
+        
+        {/* Left: Stories */}
+        <div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl sm:text-5xl font-serif text-brand-text mb-12"
+          >
+            From real women, <br />
+            <span className="text-brand-primary italic">like you</span>
+          </motion.h2>
 
-        <div className="grid lg:grid-cols-[1.5fr_1fr] gap-12 items-center mb-16">
-          <div className="bg-white rounded-2xl p-8 border border-brand-border/60 shadow-sm relative">
-            <div className="flex gap-4 mb-6">
-              <div className="w-12 h-12 rounded-full bg-brand-card flex items-center justify-center text-brand-primary shrink-0 border border-brand-primary/10">
-                <MessageSquareHeart className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-xl text-brand-text mb-1">What feels hardest to keep up with right now?</h3>
-                <p className="text-sm text-brand-text/60">Share in a few words. There's no right or wrong answer.</p>
-              </div>
-            </div>
-            
-            <div className="relative">
-              <textarea 
-                placeholder="Type your answer here..."
-                rows={4}
-                className="w-full bg-[#FDF9F5] border border-brand-border rounded-xl p-5 text-brand-text placeholder:text-brand-text/40 outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary/40 transition-all resize-none"
-              ></textarea>
-              <div className="absolute bottom-4 right-5 text-xs text-brand-text/30 font-medium">
-                0 / 300
-              </div>
-            </div>
-          </div>
-
-          <div className="flex justify-center lg:justify-end items-center opacity-90 mix-blend-multiply relative">
-            {/* Elegant SVG Graphic representing the warmth of the brand */}
-            <svg width="280" height="280" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute -top-10 -right-10 pointer-events-none opacity-20 hidden lg:block">
-              <path d="M100 180C144.183 180 180 144.183 180 100C180 55.8172 144.183 20 100 20C55.8172 20 20 55.8172 20 100C20 144.183 55.8172 180 100 180Z" fill="url(#paint0_radial)"/>
-              <defs>
-                <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(100 100) rotate(90) scale(80)">
-                  <stop stopColor="#DA7A5F"/>
-                  <stop offset="1" stopColor="#DA7A5F" stopOpacity="0"/>
-                </radialGradient>
-              </defs>
-            </svg>
-            <div className="relative">
-              <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M100 180C117.8 180 133.9 171.7 144 158.8V158.8C154.1 145.9 160 129.5 160 111.7C160 67.5 124.2 31.7 80 31.7C62.2 31.7 45.8 37.6 32.9 47.7V47.7C20 57.8 11.7 73.9 11.7 91.7C11.7 140.4 51.3 180 100 180Z" fill="#FDECE3"/>
-                <path d="M125 70C125 50 100 45 85 55C70 65 65 90 75 110C85 130 115 145 130 135C145 125 150 110 145 95C140 80 125 90 125 70Z" fill="#F4D3C5" opacity="0.6"/>
-                <path d="M108.5 118C108.5 118 108.5 106.5 122 101C122 101 138 126.5 126 137.5C114 148.5 108.5 118 108.5 118Z" fill="#DA7A5F"/>
-                <path d="M96 142.5C96 142.5 111.5 142.5 120.5 135L111.5 119C111.5 119 98 128.5 96 142.5Z" fill="#C5654C"/>
-                <path d="M72 110C72 110 63.5 123 75.5 137.5C87.5 152 111.5 148 111.5 148L96 128C96 128 85 125 81.5 114C78 103 72 110 72 110Z" fill="#FDECE3"/>
-                <circle cx="155" cy="55" r="4" fill="#DA7A5F" opacity="0.6"/>
-                <circle cx="45" cy="145" r="3" fill="#DA7A5F" opacity="0.4"/>
-                <path d="M85 85C85 85 80 95 85 105C90 115 95 115 95 115C95 115 100 105 105 105C110 105 115 95 115 85C115 75 105 70 95 80C85 70 75 75 85 85Z" fill="#DA7A5F"/>
-              </svg>
-            </div>
+          <div className="space-y-6 max-w-lg">
+            {STORIES.map((story, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 }}
+                className="bg-white/40 backdrop-blur-md p-8 rounded-[2rem] border border-brand-border/40 hover:shadow-xl hover:shadow-brand-primary/5 transition-all duration-500 group"
+              >
+                <div className="mb-4 text-brand-primary/20">
+                  <MessageSquare className="w-5 h-5 fill-current" />
+                </div>
+                <p className="text-[17px] font-bold text-brand-text/70 italic leading-relaxed mb-4 group-hover:text-brand-primary transition-colors">
+                  "{story.text}"
+                </p>
+                <p className="text-sm font-bold text-brand-text/30 tracking-widest uppercase">
+                  — {story.author}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 border-t border-brand-border/60 pt-10">
-          <div className="flex flex-col gap-3">
-            <Lock className="w-5 h-5 text-brand-primary" strokeWidth={1.5} />
-            <h4 className="font-semibold text-brand-text text-sm">Private & safe</h4>
-            <p className="text-sm text-brand-text/60 leading-relaxed">Your answers are confidential and never shared.</p>
-          </div>
-          <div className="flex flex-col gap-3">
-            <Users className="w-5 h-5 text-brand-primary" strokeWidth={1.5} />
-            <h4 className="font-semibold text-brand-text text-sm">Built with you</h4>
-            <p className="text-sm text-brand-text/60 leading-relaxed">Real stories shape Hearthly.</p>
-          </div>
-          <div className="flex flex-col gap-3">
-            <Sparkles className="w-5 h-5 text-brand-primary" strokeWidth={1.5} />
-            <h4 className="font-semibold text-brand-text text-sm">Better together</h4>
-            <p className="text-sm text-brand-text/60 leading-relaxed">Together, we can lighten the mental load.</p>
-          </div>
-          <div className="flex flex-col gap-3">
-            <Coffee className="w-5 h-5 text-brand-primary" strokeWidth={1.5} />
-            <h4 className="font-semibold text-brand-text text-sm">A little less, for you</h4>
-            <p className="text-sm text-brand-text/60 leading-relaxed">So you can have more time, energy and peace.</p>
-          </div>
-        </div>
-      </motion.div>
+        {/* Right: Exclusive Waitlist Inline Form */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="bg-brand-cream rounded-[3rem] p-10 lg:p-14 border border-brand-border/40 shadow-2xl shadow-brand-primary/5 relative overflow-hidden"
+        >
+          <AnimatePresence mode="wait">
+            {status === 'success' ? (
+              <motion.div 
+                key="success"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                className="text-center py-12 space-y-6"
+              >
+                <div className="w-20 h-20 bg-brand-sage/10 rounded-full flex items-center justify-center mx-auto text-brand-sage">
+                  <CheckCircle2 className="w-12 h-12" />
+                </div>
+                <h3 className="text-3xl font-serif text-brand-text">You're on the list!</h3>
+                <p className="text-[15px] font-bold text-brand-text/50 leading-relaxed">
+                  Thank you for helping shape Hearthly. We've received your thoughts and we'll reach out very soon.
+                </p>
+                <button 
+                  onClick={() => setStatus('idle')}
+                  className="px-8 py-3 rounded-full border border-brand-primary/20 text-brand-primary hover:bg-brand-primary/5 transition-all duration-300 font-bold text-sm"
+                >
+                  Send another feedback
+                </button>
+              </motion.div>
+            ) : (
+              <motion.div 
+                key="form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="relative z-10"
+              >
+                <h3 className="text-3xl font-serif text-brand-text mb-3">Help shape Hearthly</h3>
+                <p className="text-[15px] font-bold text-brand-text/40 mb-8">
+                  Join our Founding Families. Your real stories will build something truly meaningful.
+                </p>
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Name Input */}
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-[13px] font-bold text-brand-text/60 uppercase tracking-widest pl-2">Your Name</label>
+                    <div className="relative">
+                      <input 
+                        required
+                        type="text" 
+                        id="name"
+                        placeholder="Enter your name" 
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className="w-full bg-white px-6 py-5 rounded-2xl border-2 border-brand-border/30 focus:border-brand-primary/30 outline-none transition-all font-medium"
+                      />
+                      <User className="absolute right-5 top-1/2 -translate-y-1/2 w-6 h-6 text-brand-text/20" />
+                    </div>
+                  </div>
+
+                  {/* Email Input */}
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-[13px] font-bold text-brand-text/60 uppercase tracking-widest pl-2">Your Email</label>
+                    <div className="relative">
+                      <input 
+                        required
+                        type="email" 
+                        id="email"
+                        placeholder="Enter your email" 
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="w-full bg-white px-6 py-5 rounded-2xl border-2 border-brand-border/30 focus:border-brand-primary/30 outline-none transition-all font-medium"
+                      />
+                      <Mail className="absolute right-5 top-1/2 -translate-y-1/2 w-6 h-6 text-brand-text/20" />
+                    </div>
+                  </div>
+
+                  {/* Quick Question Textarea */}
+                  <div className="space-y-2">
+                    <label htmlFor="answer" className="text-[13px] font-bold text-brand-text/60 uppercase tracking-widest pl-2">A quick question</label>
+                    <textarea 
+                      required
+                      id="answer"
+                      placeholder="What feels mentally exhausting to keep up with right now?" 
+                      rows={4}
+                      value={formData.answer}
+                      onChange={handleInputChange}
+                      className="w-full bg-white px-6 py-5 rounded-2xl border-2 border-brand-border/30 focus:border-brand-primary/30 outline-none transition-all font-medium resize-none"
+                    />
+                    <div className="text-right text-[11px] font-bold text-brand-text/20 pr-2">
+                      {formData.answer.length}/300
+                    </div>
+                  </div>
+
+                  <button 
+                    disabled={status === 'loading'}
+                    type="submit"
+                    className="w-full bg-brand-primary text-white py-5 rounded-2xl font-bold text-lg hover:bg-brand-primary-hover shadow-xl shadow-brand-primary/20 transition-all duration-500 transform hover:-translate-y-1 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {status === 'loading' ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Submitting...
+                      </>
+                    ) : (
+                      'Join the waitlist'
+                    )}
+                  </button>
+
+                  {status === 'error' && (
+                    <p className="text-center text-sm text-red-500 font-medium">
+                      Something went wrong. Please try again.
+                    </p>
+                  )}
+
+                  <div className="flex items-center justify-center gap-2 text-[12px] font-bold text-brand-text/30">
+                    <Lock className="w-3.5 h-3.5" />
+                    We respect your inbox. No spam, ever.
+                  </div>
+                </form>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Decorative background glow */}
+          <div className="absolute top-0 right-0 w-40 h-40 bg-brand-primary/5 rounded-full blur-3xl -z-10"></div>
+        </motion.div>
+      </div>
     </section>
   );
 }
