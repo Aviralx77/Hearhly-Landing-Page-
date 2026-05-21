@@ -46,9 +46,9 @@ export default function VoiceMemory() {
           className="relative"
         >
           {/* Voice Player UI */}
-          <div className="bg-white rounded-[3rem] p-10 shadow-2xl border border-brand-border/40 relative z-10 overflow-hidden">
-            <div className="flex items-center gap-6 mb-10">
-               <div className="w-16 h-16 rounded-full bg-brand-peach flex items-center justify-center overflow-hidden border-4 border-white shadow-sm">
+          <div className="bg-white rounded-[2rem] lg:rounded-[3rem] p-6 lg:p-10 shadow-2xl border border-brand-border/40 relative z-10 overflow-hidden">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-8 lg:mb-10">
+               <div className="w-16 h-16 shrink-0 rounded-full bg-brand-peach flex items-center justify-center overflow-hidden border-4 border-white shadow-sm">
                  <img src="https://i.pravatar.cc/150?u=mom" alt="User" className="w-full h-full object-cover" />
                </div>
                <div>
@@ -76,7 +76,7 @@ export default function VoiceMemory() {
               transition={{ delay: 0.5 }}
               className="bg-brand-sage/10 rounded-2xl p-6 flex items-center gap-4 border border-brand-sage/20"
             >
-               <div className="w-10 h-10 rounded-full bg-brand-sage text-white flex items-center justify-center">
+               <div className="w-10 h-10 rounded-full bg-brand-sage text-white flex items-center justify-center shrink-0">
                  <CheckCircle2 className="w-6 h-6" />
                </div>
                <p className="text-[15px] font-bold text-brand-text/70 leading-snug">

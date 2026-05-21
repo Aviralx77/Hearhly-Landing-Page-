@@ -199,7 +199,7 @@ export default function ResearchSection() {
             </h3>
           </motion.div>
 
-          <div className="grid lg:grid-cols-[1fr_auto_1.2fr] gap-12 items-center">
+          <div className="grid lg:grid-cols-[1fr_auto_1.2fr] gap-8 lg:gap-12 items-center">
             {/* Basket Side */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -210,12 +210,12 @@ export default function ResearchSection() {
               <img 
                 src="/assets/images/research/basket.png" 
                 alt="Household tasks list" 
-                className="w-full h-96 object-cover"
+                className="w-full h-64 sm:h-96 object-cover"
               />
             </motion.div>
 
             {/* Middle Text */}
-            <div className="flex flex-col items-center gap-8 py-12">
+            <div className="hidden lg:flex flex-col items-center gap-8 py-12">
               <div className="w-px h-12 bg-brand-primary/20"></div>
               <Heart className="w-4 h-4 text-brand-primary/30" />
               <div className="w-px h-12 bg-brand-primary/20"></div>
@@ -232,7 +232,7 @@ export default function ResearchSection() {
                 <img 
                   src="/assets/images/research/woman.png" 
                   alt="Woman drinking tea" 
-                  className="w-full h-96 object-cover"
+                  className="w-full h-64 sm:h-96 object-cover"
                 />
               </div>
             </motion.div>
@@ -265,7 +265,7 @@ export default function ResearchSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white/80 backdrop-blur-md border border-brand-border/40 rounded-[3rem] p-8 lg:p-12 shadow-xl shadow-brand-primary/5 grid sm:grid-cols-2 lg:grid-cols-4 gap-12"
+          className="bg-white/80 backdrop-blur-md border border-brand-border/40 rounded-[2rem] lg:rounded-[3rem] p-6 lg:p-12 shadow-xl shadow-brand-primary/5 grid sm:grid-cols-2 lg:grid-cols-4 gap-12"
         >
           {RESEARCH_METRICS.map((metric, i) => (
             <div key={i} className="flex items-center gap-6 group">

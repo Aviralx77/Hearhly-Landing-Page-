@@ -74,7 +74,7 @@ export default function SurveySection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="bg-white/40 backdrop-blur-md p-8 rounded-[2rem] border border-brand-border/40 hover:shadow-xl hover:shadow-brand-primary/5 transition-all duration-500 group"
+                className="bg-white/40 backdrop-blur-md p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] border border-brand-border/40 hover:shadow-xl hover:shadow-brand-primary/5 transition-all duration-500 group"
               >
                 <div className="mb-4 text-brand-primary/20">
                   <MessageSquare className="w-5 h-5 fill-current" />
@@ -95,7 +95,7 @@ export default function SurveySection() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="bg-brand-cream rounded-[3rem] p-10 lg:p-14 border border-brand-border/40 shadow-2xl shadow-brand-primary/5 relative overflow-hidden"
+          className="bg-brand-cream rounded-[2rem] lg:rounded-[3rem] p-6 sm:p-10 lg:p-14 border border-brand-border/40 shadow-2xl shadow-brand-primary/5 relative overflow-hidden"
         >
           <AnimatePresence mode="wait">
             {status === 'success' ? (

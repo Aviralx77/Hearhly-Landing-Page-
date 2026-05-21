@@ -59,17 +59,17 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-lg bg-[#FFFBF6] rounded-[3rem] overflow-hidden shadow-2xl"
+            className="relative w-full max-w-lg bg-[#FFFBF6] rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-2xl"
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-8 right-8 p-2 text-brand-text/20 hover:text-brand-text/60 transition-colors"
+              className="absolute top-4 right-4 sm:top-8 sm:right-8 p-2 text-brand-text/20 hover:text-brand-text/60 transition-colors"
             >
               <X className="w-6 h-6" />
             </button>
 
-            <div className="p-12 lg:p-16">
+            <div className="p-6 sm:p-12 lg:p-16">
               {status === 'success' ? (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}

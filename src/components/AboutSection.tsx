@@ -75,7 +75,7 @@ export default function AboutSection({ onOpenWaitlist }: { onOpenWaitlist?: () =
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-brand-peach/30 rounded-[4rem] p-12 lg:p-24 mb-40 relative overflow-hidden"
+          className="bg-brand-peach/30 rounded-[2rem] lg:rounded-[4rem] p-6 sm:p-12 lg:p-24 mb-40 relative overflow-hidden"
         >
           <div className="grid lg:grid-cols-[1fr_auto] gap-16 items-start relative z-10">
             <div className="space-y-8">
@@ -125,7 +125,7 @@ export default function AboutSection({ onOpenWaitlist }: { onOpenWaitlist?: () =
               </div>
 
               {/* Scrap note */}
-              <div className="absolute -right-12 top-1/2 -translate-y-1/2 w-56 bg-[#FFFDF2] p-8 shadow-xl -rotate-2 border border-brand-border/20">
+              <div className="relative lg:absolute -right-4 lg:-right-12 top-auto lg:top-1/2 lg:-translate-y-1/2 w-full max-w-[280px] lg:w-56 bg-[#FFFDF2] p-6 lg:p-8 shadow-xl -rotate-2 border border-brand-border/20 mt-6 lg:mt-0 mx-auto">
                 <p className="font-handwriting text-xl text-brand-text/70 leading-snug">
                   "Some ideas come from market gaps. This one came from a home I love."
                 </p>
@@ -214,7 +214,7 @@ export default function AboutSection({ onOpenWaitlist }: { onOpenWaitlist?: () =
             </div>
 
             {/* Floating card decoration */}
-            <div className="absolute -bottom-10 -right-10 bg-white p-8 shadow-xl rounded-2xl max-w-[200px] border border-brand-border/20 rotate-3">
+            <div className="absolute -bottom-6 right-4 lg:-bottom-10 lg:-right-10 bg-white p-6 lg:p-8 shadow-xl rounded-2xl max-w-[180px] lg:max-w-[200px] border border-brand-border/20 rotate-3">
               <p className="font-handwriting text-xl text-brand-text/70 leading-tight">
                 "Listening always comes first."
               </p>
@@ -249,7 +249,7 @@ export default function AboutSection({ onOpenWaitlist }: { onOpenWaitlist?: () =
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-brand-peach/40 rounded-[4rem] p-12 lg:p-24 text-center space-y-10 border border-brand-primary/5 relative overflow-hidden"
+          className="bg-brand-peach/40 rounded-[2rem] lg:rounded-[4rem] p-6 sm:p-12 lg:p-24 text-center space-y-10 border border-brand-primary/5 relative overflow-hidden"
         >
           <div className="relative z-10 space-y-10">
             <h3 className="text-4xl lg:text-5xl font-serif text-brand-text leading-tight">

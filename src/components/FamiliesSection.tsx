@@ -92,7 +92,7 @@ export default function FamiliesSection({ onOpenWaitlist }: { onOpenWaitlist?: (
                 />
                 
                 {/* Floating UI Elements */}
-                <div className="absolute top-8 right-8 w-64 bg-white/90 backdrop-blur-md p-6 rounded-3xl shadow-xl border border-brand-border/30 animate-float">
+                <div className="absolute bottom-4 left-4 right-4 lg:bottom-auto lg:left-auto lg:top-8 lg:right-8 lg:w-64 bg-white/90 backdrop-blur-md p-5 lg:p-6 rounded-2xl lg:rounded-3xl shadow-xl border border-brand-border/30 animate-float">
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-[10px] font-bold text-brand-text/40 uppercase tracking-tighter">Voice note from you</span>
                     <span className="text-[10px] font-bold text-brand-text/30 uppercase">8:47 AM</span>
@@ -192,7 +192,7 @@ export default function FamiliesSection({ onOpenWaitlist }: { onOpenWaitlist?: (
                 whileInView={{ opacity: 1, rotate: i % 2 === 0 ? -1 : 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, type: "spring" }}
-                className={`${note.color} p-8 shadow-xl shadow-black/5 aspect-square flex flex-col justify-between relative hover:rotate-0 transition-transform duration-500`}
+                className={`${note.color} p-4 sm:p-8 shadow-xl shadow-black/5 aspect-square flex flex-col justify-between relative hover:rotate-0 transition-transform duration-500`}
               >
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-5 bg-white/40 backdrop-blur-sm -rotate-1"></div>
                 <div className="space-y-4">
@@ -203,7 +203,7 @@ export default function FamiliesSection({ onOpenWaitlist }: { onOpenWaitlist?: (
                       {i === 3 && <BookOpen className="w-4 h-4" />}
                       {i === 4 && <Utensils className="w-4 h-4" />}
                    </div>
-                   <p className="font-handwriting text-2xl text-brand-text/80 leading-tight">
+                   <p className="font-handwriting text-lg sm:text-2xl text-brand-text/80 leading-tight">
                     "{note.text}"
                   </p>
                 </div>
@@ -250,7 +250,7 @@ export default function FamiliesSection({ onOpenWaitlist }: { onOpenWaitlist?: (
         </div>
 
         {/* Real moments Metrics */}
-        <div className="mb-40 grid lg:grid-cols-[1fr_auto_1fr] gap-12 items-center bg-brand-peach/20 rounded-[4rem] p-12 lg:p-20 relative overflow-hidden">
+        <div className="mb-40 grid lg:grid-cols-[1fr_auto_1fr] gap-12 items-center bg-brand-peach/20 rounded-[2rem] lg:rounded-[4rem] p-6 sm:p-12 lg:p-20 relative overflow-hidden">
            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--color-brand-primary)_0%,_transparent_70%)] opacity-[0.03]"></div>
            
            <div className="space-y-8 relative z-10">
@@ -290,7 +290,7 @@ export default function FamiliesSection({ onOpenWaitlist }: { onOpenWaitlist?: (
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-brand-primary text-white rounded-[4rem] p-12 lg:p-20 text-center space-y-10 relative overflow-hidden"
+          className="bg-brand-primary text-white rounded-[2rem] lg:rounded-[4rem] p-6 sm:p-12 lg:p-20 text-center space-y-10 relative overflow-hidden"
         >
           {/* Decorative illustration style elements */}
           <div className="absolute top-12 left-12 opacity-10">
