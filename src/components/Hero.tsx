@@ -72,7 +72,7 @@ export default function Hero({ onOpenWaitlist }: { onOpenWaitlist?: () => void }
         </motion.div>
 
         {/* Right: Immersive Composition */}
-        <div className="relative">
+        <div className="relative mb-20 lg:mb-0">
           <motion.div
             initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -80,7 +80,7 @@ export default function Hero({ onOpenWaitlist }: { onOpenWaitlist?: () => void }
             className="relative z-10"
           >
             {/* Cinematic Hero Image */}
-            <div className="relative h-[400px] sm:h-[500px] lg:h-[720px] w-full rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-[0_48px_80px_-16px_rgba(0,0,0,0.12)] border-8 lg:border-[12px] border-white">
+            <div className="relative h-[450px] sm:h-[500px] lg:h-[720px] w-full rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-[0_48px_80px_-16px_rgba(0,0,0,0.12)] border-8 lg:border-[12px] border-white">
               <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/10 to-transparent mix-blend-overlay"></div>
               <img 
                 src="/assets/hero-woman-premium.png" 
@@ -94,7 +94,7 @@ export default function Hero({ onOpenWaitlist }: { onOpenWaitlist?: () => void }
               initial={{ x: 60, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 1, duration: 1.2 }}
-              className="absolute left-4 lg:-left-20 top-[40%] lg:top-1/3 -translate-y-1/2 w-[280px] sm:w-80 glass-effect p-6 rounded-[2rem] shadow-2xl border border-white/60 z-30 glow-soft"
+              className="absolute left-4 lg:-left-20 -bottom-12 lg:bottom-auto lg:top-1/3 translate-y-0 lg:-translate-y-1/2 w-[280px] sm:w-80 glass-effect p-6 rounded-[2rem] shadow-2xl border border-white/60 z-30 glow-soft"
             >
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
@@ -143,7 +143,7 @@ export default function Hero({ onOpenWaitlist }: { onOpenWaitlist?: () => void }
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1.5, duration: 1 }}
-              className="absolute -bottom-8 right-4 lg:right-12 bg-white px-6 py-4 rounded-2xl shadow-xl border border-brand-border/40 z-30 max-w-[200px]"
+              className="absolute top-4 right-4 lg:top-auto lg:-bottom-8 lg:right-12 bg-white px-6 py-4 rounded-2xl shadow-xl border border-brand-border/40 z-30 max-w-[200px]"
             >
               <p className="text-xs font-semibold text-brand-text/60 leading-relaxed italic text-center">
                 "Quick breakfast because mornings feel rushed"
