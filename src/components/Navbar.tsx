@@ -12,9 +12,9 @@ export default function Navbar({ onOpenWaitlist }: { onOpenWaitlist?: () => void
       >
         <div className="flex items-center cursor-pointer group relative">
           <img 
-            src="/assets/hearthly-logo.png" 
+            src="/assets/hearthly-logo-transparent.png" 
             alt="Hearthly Logo" 
-            className="h-20 lg:h-24 w-auto object-contain transform group-hover:scale-105 transition-transform duration-500 -my-8 mix-blend-multiply" 
+            className="h-20 lg:h-24 w-auto object-contain transform group-hover:scale-105 transition-transform duration-500 -my-8" 
           />
         </div>
         

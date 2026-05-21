@@ -9,9 +9,9 @@ export default function Footer() {
           <div className="space-y-6">
             <div className="flex items-center cursor-pointer">
               <img 
-                src="/assets/hearthly-logo.png" 
+                src="/assets/hearthly-logo-transparent.png" 
                 alt="Hearthly Logo" 
-                className="h-20 w-auto object-contain -ml-4 -my-6 mix-blend-multiply" 
+                className="h-20 w-auto object-contain -ml-4 -my-6" 
               />
             </div>
             <p className="text-[15px] font-bold text-brand-text/40 leading-relaxed max-w-xs">
