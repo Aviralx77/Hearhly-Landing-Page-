@@ -18,8 +18,18 @@ export default function Footer() {
               AI copilot for home. Built with love, backed by real women.
             </p>
             <div className="flex gap-6">
-              {[Instagram, Twitter, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="text-brand-text/30 hover:text-brand-primary transition-colors">
+              {[
+                { Icon: Instagram, href: "https://www.instagram.com/hearthlyforwomen?igsh=dXJ2MjA4dGJlbTRv&utm_source=qr" },
+                { Icon: Twitter, href: "#" },
+                { Icon: Linkedin, href: "#" }
+              ].map(({ Icon, href }, i) => (
+                <a 
+                  key={i} 
+                  href={href} 
+                  target={href !== "#" ? "_blank" : undefined}
+                  rel={href !== "#" ? "noopener noreferrer" : undefined}
+                  className="text-brand-text/30 hover:text-brand-primary transition-colors"
+                >
                   <Icon className="w-5 h-5" />
                 </a>
               ))}
