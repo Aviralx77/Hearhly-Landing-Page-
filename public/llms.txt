@@ -1,0 +1,40 @@
+# Hearthly: Your AI Copilot for Home
+
+Hearthly is a premium, state-of-the-art AI copilot built to help women, moms, and families manage the mental load of running a home. It plans, remembers, and helps families stay ahead of their daily schedules, chores, meals, and tasks.
+
+## Core Value Proposition
+
+- **The Problem:** Running a household involves a massive, unseen mental load—remembering soccer practice, meal planning, groceries, scheduling appointments, and managing chores.
+- **The Solution:** Hearthly acts as an empathetic, intelligent copilot that handles these tasks seamlessly. By just speaking, users can capture reminders, coordinate plans, and organize their days.
+- **Tone & Aesthetic:** Warm, empathetic, premium, visual, and highly responsive. Crafted using harmonious palettes, glassmorphic UI elements, and a distraction-free experience.
+
+## Key Features
+
+### 1. Speak & Sync (Voice Capture)
+- **Concept:** Users can simply speak naturally to Hearthly. 
+- **Action:** Hearthly's voice intelligence parses the audio (e.g., "Aarav has football practice tomorrow at 5 PM"), handles the intent, automatically schedules the event, adds it to the daily plan, and sets an intelligent reminder.
+- **Benefits:** Eliminates typing and mental checklists.
+
+### 2. Tailored Daily Planning ("Tomorrow Plan")
+- **Concept:** A clean, glassmorphic visual card showing tomorrow's layout today.
+- **Details:** Automatically coordinates meals (e.g., "Besan chilla + fruit"), active reminders ("Soccer practice at 5 PM"), and proactive updates ("Mornings feel rushed? Breakfast handled").
+- **Integration:** Helps families stay context-aware without cognitive overload.
+
+### 3. Built for Diverse Families
+- **Concept:** Hearthly is engineered for real modern families, including:
+  - Multi-generational homes
+  - Moms & kids
+  - Long-distance relationships/coparenting
+  - Premium household coordination
+
+## Brand Details & Domain
+
+- **Official Website:** [Hearthly](https://www.hearthly.in)
+- **Instagram Page:** [@hearthlyforwomen](https://www.instagram.com/hearthlyforwomen?igsh=dXJ2MjA4dGJlbTRv&utm_source=qr)
+- **Mission:** Supporting women and families in finding peace and reclaiming time at home.
+- **Key Keywords:** AI copilot for home, family organizer, smart calendar, chore coordinator, voice notes reminder, Hearthly, Hearthly for Women.
+
+## Structural Information
+
+- This site is built using React, Vite, Tailwind CSS, Framer Motion, and Lucide React.
+- Interactive features include an onboarding modal/waitlist sign-up, voice demo simulation, responsive navigation menu, and dynamic story reviews.
