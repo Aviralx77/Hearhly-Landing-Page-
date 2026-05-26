@@ -49,7 +49,7 @@ export default function VoiceMemory() {
           <div className="bg-white rounded-[2rem] lg:rounded-[3rem] p-6 lg:p-10 shadow-2xl border border-brand-border/40 relative z-10 overflow-hidden">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-8 lg:mb-10">
                <div className="w-16 h-16 shrink-0 rounded-full bg-brand-peach flex items-center justify-center overflow-hidden border-4 border-white shadow-sm">
-                 <img src="https://i.pravatar.cc/150?u=mom" alt="User" className="w-full h-full object-cover" />
+                 <img src="/assets/indian-woman-speaking.png" alt="User sending voice note" className="w-full h-full object-cover" />
                </div>
                <div>
                  <p className="text-brand-text font-bold text-lg">"Aarav has football practice tomorrow at 5 PM."</p>
