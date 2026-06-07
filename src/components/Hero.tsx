@@ -10,9 +10,9 @@ export default function Hero({ onOpenWaitlist }: { onOpenWaitlist?: () => void }
   return (
     <section className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-24 relative overflow-visible">
       <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-24 items-center">
-        
+
         {/* Left: Content */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate="show"
           variants={{
@@ -21,7 +21,7 @@ export default function Hero({ onOpenWaitlist }: { onOpenWaitlist?: () => void }
           }}
           className="relative z-20"
         >
-          <motion.h1 
+          <motion.h1
             variants={FADE_UP}
             className="text-6xl sm:text-7xl lg:text-[88px] leading-[0.95] font-serif text-brand-text tracking-tight mb-10"
           >
@@ -36,15 +36,15 @@ export default function Hero({ onOpenWaitlist }: { onOpenWaitlist?: () => void }
             felt handled? <span className="text-brand-primary/60 font-sans font-light">♡</span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             variants={FADE_UP}
             className="text-xl sm:text-2xl text-brand-text/60 leading-relaxed max-w-lg mb-12 font-medium text-balance"
           >
-            Hearthly is your AI copilot for home. It plans, remembers and helps you stay ahead—so you can finally <span className="text-brand-text/90">breathe</span>.
+            Hearthly is your AI app for home. It plans, remembers everything, tracks and helps you stay ahead—so you can finally <span className="text-brand-text/90">breathe</span>.
           </motion.p>
 
           <motion.div variants={FADE_UP} className="flex flex-wrap gap-5 mb-14">
-            <button 
+            <button
               onClick={onOpenWaitlist}
               className="px-10 py-5 rounded-full bg-brand-primary text-white hover:bg-brand-primary-hover transition-all duration-500 font-bold text-lg shadow-[0_20px_40px_-10px_rgba(218,122,95,0.4)] transform hover:-translate-y-1 active:scale-95 flex items-center gap-3"
             >
@@ -82,15 +82,15 @@ export default function Hero({ onOpenWaitlist }: { onOpenWaitlist?: () => void }
             {/* Cinematic Hero Image */}
             <div className="relative h-[320px] sm:h-[450px] lg:h-[720px] w-full rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-[0_48px_80px_-16px_rgba(0,0,0,0.12)] border-8 lg:border-[12px] border-white">
               <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/10 to-transparent mix-blend-overlay"></div>
-              <img 
-                src="/assets/hero-woman-premium.png" 
-                alt="Woman finding peace at home" 
+              <img
+                src="/assets/hero-woman-premium.png"
+                alt="Woman finding peace at home"
                 className="w-full h-full object-cover object-center scale-105 hover:scale-110 transition-transform duration-[4s]"
               />
             </div>
 
             {/* Floating Tomorrow Plan Card - Stacked on mobile, Absolute on desktop */}
-            <motion.div 
+            <motion.div
               initial={{ x: 60, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 1, duration: 1.2 }}
@@ -117,7 +117,7 @@ export default function Hero({ onOpenWaitlist }: { onOpenWaitlist?: () => void }
                   </div>
                   <p className="text-sm font-bold text-brand-text">Besan chilla + fruit</p>
                 </div>
-                
+
                 <div className="p-4 bg-white/60 rounded-2xl border border-white/40 opacity-60">
                   <div className="flex justify-between items-start mb-2">
                     <span className="text-[10px] font-bold text-brand-text/40 uppercase tracking-widest">Reminders</span>
