@@ -14,7 +14,7 @@ export default function LaborSection() {
   return (
     <section className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32">
       <div className="text-left mb-16">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -22,14 +22,14 @@ export default function LaborSection() {
         >
           The work nobody sees
         </motion.h2>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
           className="text-lg sm:text-xl text-brand-text/50 font-medium"
         >
-          You carry so much—often in your head.
+          You carry so much — From household chores to professional work. Hearthly helps you manage it all.
         </motion.p>
       </div>
 
